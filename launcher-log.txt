@@ -1,0 +1,20 @@
+line endings: CRLF
+Using cached openpyxl-3.1.5-py2.py3-none-any.whl (250 kB)
+Using cached python_dateutil-4.0.0-py3-none-any.whl (92 kB)
+Downloading charset_normalizer-3.5.2-cp315-cp315-win_amd64.whl (210 kB)
+Downloading cryptography-50.0.2-cp315-abi3.abi3t-win_amd64.whl (4.1 MB)
+   ---------------------------------------- 4.1/4.1 MB 43.1 MB/s  0:00:00
+Downloading cffi-2.1.1-cp315-cp315-win_amd64.whl (187 kB)
+Using cached packaging-26.3-py3-none-any.whl (129 kB)
+Using cached et_xmlfile-2.0.0-py3-none-any.whl (18 kB)
+Using cached pycparser-3.12-py3-none-any.whl (62 kB)
+Using cached tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+Installing collected packages: tzdata, pypdfium2, pycparser, Pillow, packaging, numpy, et-xmlfile, charset-normalizer, python-dateutil, pytesseract, openpyxl, cffi, pandas, cryptography, pdfminer.six, pdfplumber
+
+Successfully installed Pillow-13.0.0 cffi-2.1.1 charset-normalizer-3.5.2 cryptography-50.0.2 et-xmlfile-2.0.0 numpy-2.5.4 openpyxl-3.1.5 packaging-26.3 pandas-3.1.0 pdfminer.six-20260107 pdfplumber-0.11.10 pycparser-3.12 pypdfium2-5.14.0 pytesseract-0.3.13 python-dateutil-4.0.0 tzdata-2026.6
+
+ Setup complete.
+first run: cmd exit code 0
+app running: pythonw PID 8484,8672
+second start: launcher returned in 0.2 s, exit 0
+second start: app running = True
