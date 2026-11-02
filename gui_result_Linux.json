@@ -1,0 +1,18 @@
+{
+ "os": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+ "python": "3.13.17",
+ "tiles": {
+  "Processed": "22",
+  "Needs review": "14",
+  "Duplicates": "2",
+  "Failed": "3"
+ },
+ "status": "Finished. 41 file(s) found: 22 processed, 14 need review, 2 duplicate(s), 3 failed.",
+ "expected": {
+  "Processed": "22",
+  "Needs review": "14",
+  "Duplicates": "2",
+  "Failed": "3"
+ },
+ "ok": true
+}
