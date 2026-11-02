@@ -57,10 +57,10 @@ jobs:
       - name: Real window test (Windows / macOS)
         if: runner.os != 'Linux'
         shell: bash
-        run: ${{ env.PY }} ci/gui_smoke_test.py
+        run: ${{ env.PY }} ci/run_gui_check.py
       - name: Real window test (Linux, virtual display)
         if: runner.os == 'Linux'
-        run: xvfb-run -a -s "-screen 0 1280x900x24" ${{ env.PY }} ci/gui_smoke_test.py
+        run: xvfb-run -a -s "-screen 0 1280x900x24" ${{ env.PY }} ci/run_gui_check.py
 
       # ---------- the double-click launcher, on a fresh copy with no .venv (first-run install path)
       - name: Windows launcher (.bat) first-run install and start

@@ -117,7 +117,7 @@ python -m pytest            # 90 tests, ~90 s (OCR tests need Tesseract with fra
 4 scans/photos, 10 problem cases) and `ground_truth.json` the expected fields, line items and status for each.
 
 Cross-platform CI: `.github/workflows/test.yml` installs from `requirements.txt` into a fresh virtualenv on
-Windows, macOS and Linux (Python 3.10 and 3.13), runs the tests, drives the real window (`ci/gui_smoke_test.py`),
+Windows, macOS and Linux (Python 3.10 and 3.13), runs the tests, drives the real window (`ci/run_gui_check.py`),
 and on Windows runs `Start Invoice Processor.bat` from scratch.
 
 ## Privacy
