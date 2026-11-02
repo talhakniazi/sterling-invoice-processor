@@ -11,8 +11,12 @@ from invoice_processor.gui import App             # noqa: E402
 
 OUT = ROOT / "ci-output"; OUT.mkdir(exist_ok=True)
 work = OUT / "work"; shutil.rmtree(work, ignore_errors=True); (work / "inbox").mkdir(parents=True)
-for f in (ROOT / "app/tests/data/sample_invoices").iterdir():
+import os
+_truth = json.loads((ROOT / "app/tests/data/ground_truth.json").read_text())
+_later = lambda p: _truth.get(p.name, {}).get("expected_status") == "DUPLICATE"
+for k, f in enumerate(sorted((ROOT / "app/tests/data/sample_invoices").iterdir(), key=lambda p: (_later(p), p.name.lower()))):
     shutil.copy2(f, work / "inbox" / f.name)
+    t = time.time() - 3600 + k; os.utime(work / "inbox" / f.name, (t, t))   # originals first, resent copies later
 cfg = Config(inbox_folder=str(work / "inbox"), output_folder=str(work / "out"), min_file_age_seconds=0)
 cfg.save = lambda *a, **k: None
 truth = json.loads((ROOT / "app/tests/data/ground_truth.json").read_text())

@@ -22,8 +22,11 @@ def truth():
 def copy_samples(dest: Path, names=None):
     dest.mkdir(parents=True, exist_ok=True)
     src = DATA / "sample_invoices"
-    # keep the original relative ordering of modification times (resent copies are newer)
-    for k, f in enumerate(sorted(src.iterdir(), key=lambda p: (p.stat().st_mtime, p.name))):
+    # Files arrive in a defined order: originals first, then the copies that are expected to be
+    # detected as duplicates (resent / re-issued). Timestamps from a git checkout cannot be relied on.
+    truth = json.loads((DATA / "ground_truth.json").read_text())
+    later = lambda p: truth.get(p.name, {}).get("expected_status") == "DUPLICATE"
+    for k, f in enumerate(sorted(src.iterdir(), key=lambda p: (later(p), p.name.lower()))):
         if names and f.name not in names:
             continue
         shutil.copy2(f, dest / f.name)
