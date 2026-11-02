@@ -1,7 +1,11 @@
 name: Clean install and test on Windows, macOS, Linux
 
+permissions:
+  contents: write
+
 on:
   push:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -70,24 +74,25 @@ jobs:
         timeout-minutes: 15
         run: |
           $log = "$env:GITHUB_WORKSPACE\launcher-log.txt"
+          function L($m) { $m | Tee-Object -Append -FilePath $log }
           Copy-Item -Recurse app "$env:RUNNER_TEMP\Invoice Processor"
           $dir = "$env:RUNNER_TEMP\Invoice Processor"
           Remove-Item -Recurse -Force "$dir\tests" -ErrorAction SilentlyContinue
-          "line endings: $(if ((Get-Content -Raw "$dir\Start Invoice Processor.bat") -match "`r`n") {'CRLF'} else {'LF only'})" | Out-File $log
+          L "line endings: $(if ((Get-Content -Raw "$dir\Start Invoice Processor.bat") -match "`r`n") {'CRLF'} else {'LF only'})"
           # Run the .bat exactly as a double-click would (no pipes), wait only for cmd.exe itself
           $p = Start-Process cmd.exe -ArgumentList '/c', '"Start Invoice Processor.bat"' -WorkingDirectory $dir -PassThru `
                -RedirectStandardOutput "$env:RUNNER_TEMP\bat-out.txt" -RedirectStandardError "$env:RUNNER_TEMP\bat-err.txt"
           if (-not $p.WaitForExit(600000)) {
-            Get-Content "$env:RUNNER_TEMP\bat-out.txt","$env:RUNNER_TEMP\bat-err.txt" -ErrorAction SilentlyContinue | Add-Content $log
+            Get-Content "$env:RUNNER_TEMP\bat-out.txt","$env:RUNNER_TEMP\bat-err.txt" -ErrorAction SilentlyContinue | ForEach-Object { L $_ }
             Stop-Process -Id $p.Id -Force; throw "launcher did not finish within 10 minutes (stuck at a prompt?) - see launcher-log.txt" }
-          Get-Content "$env:RUNNER_TEMP\bat-out.txt","$env:RUNNER_TEMP\bat-err.txt" -ErrorAction SilentlyContinue | Add-Content $log
-          "first run: cmd exit code $($p.ExitCode)" | Add-Content $log
+          Get-Content "$env:RUNNER_TEMP\bat-out.txt","$env:RUNNER_TEMP\bat-err.txt" -ErrorAction SilentlyContinue | Select-Object -Last 15 | ForEach-Object { L $_ }
+          L "first run: cmd exit code $($p.ExitCode)"
           if ($p.ExitCode -ne 0) { throw "launcher exited with code $($p.ExitCode)" }
           if (-not (Test-Path "$dir\.venv\Scripts\pythonw.exe")) { throw "launcher did not create the environment" }
           Start-Sleep -Seconds 20
           $w = Get-Process pythonw -ErrorAction SilentlyContinue
           if (-not $w) { throw "the app window process is not running" }
-          "app running: pythonw PID $($w.Id -join ',')" | Add-Content $log
+          L "app running: pythonw PID $($w.Id -join ',')"
           Add-Type -AssemblyName System.Windows.Forms, System.Drawing
           $b = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds
           $bmp = New-Object System.Drawing.Bitmap $b.Width, $b.Height
@@ -95,12 +100,15 @@ jobs:
           New-Item -ItemType Directory -Force "$env:GITHUB_WORKSPACE\ci-output" | Out-Null
           $bmp.Save("$env:GITHUB_WORKSPACE\ci-output\3_launched_by_bat.png")
           $w | Stop-Process -Force
-          # Second start must not reinstall
-          $t = Measure-Command { $q = Start-Process cmd.exe -ArgumentList '/c', '"Start Invoice Processor.bat"' -WorkingDirectory $dir -PassThru -Wait }
-          "second start: cmd finished in $([math]::Round($t.TotalSeconds,1)) s, exit $($q.ExitCode)" | Add-Content $log
+          # Second start must not reinstall (wait for cmd.exe only - NOT its child, the app window)
+          $sw = [Diagnostics.Stopwatch]::StartNew()
+          $q = Start-Process cmd.exe -ArgumentList '/c', '"Start Invoice Processor.bat"' -WorkingDirectory $dir -PassThru
+          if (-not $q.WaitForExit(120000)) { throw "second start did not return" }
+          L "second start: launcher returned in $([math]::Round($sw.Elapsed.TotalSeconds,1)) s, exit $($q.ExitCode)"
           Start-Sleep -Seconds 10
-          Get-Process pythonw -ErrorAction SilentlyContinue | Stop-Process -Force
-          Get-Content $log
+          $w2 = Get-Process pythonw -ErrorAction SilentlyContinue
+          L "second start: app running = $([bool]$w2)"
+          $w2 | Stop-Process -Force
 
       - name: Command-line entry point
         shell: bash
@@ -108,6 +116,17 @@ jobs:
           mkdir -p cli-test/inbox && cp app/tests/data/sample_invoices/northgate_INV-10422.pdf cli-test/inbox/
           ${{ env.PY }} app/process_invoices_cli.py --inbox cli-test/inbox --output cli-test/out || test $? -eq 1
           ls cli-test/out
+
+      - name: Save evidence to branch
+        if: always()
+        shell: bash
+        run: |
+          B="evidence/${{ matrix.os }}-py${{ matrix.python }}"
+          mkdir -p /tmp/ev && cp -r ci-output/*.png ci-output/*.json junit-*.xml installed-versions-*.txt launcher-log.txt /tmp/ev/ 2>/dev/null || true
+          echo "${{ job.status }}" > /tmp/ev/job-status.txt
+          git config user.email "ci@users.noreply.github.com"; git config user.name "CI"
+          git checkout --orphan "$B" -q && git rm -rfq . >/dev/null && git clean -fdxq -e cleanvenv
+          cp -r /tmp/ev/. . && git add -A -- . ':!cleanvenv' && git commit -qm "evidence ${{ github.sha }}" && git push -f -q origin "$B"
 
       - uses: actions/upload-artifact@v4
         if: always()
