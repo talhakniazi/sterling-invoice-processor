@@ -1,0 +1,18 @@
+{
+ "os": "Windows-10-10.0.26100-SP0",
+ "python": "3.10.11",
+ "tiles": {
+  "Processed": "22",
+  "Needs review": "14",
+  "Duplicates": "2",
+  "Failed": "3"
+ },
+ "status": "Finished. 41 file(s) found: 22 processed, 14 need review, 2 duplicate(s), 3 failed.",
+ "expected": {
+  "Processed": "22",
+  "Needs review": "14",
+  "Duplicates": "2",
+  "Failed": "3"
+ },
+ "ok": true
+}
