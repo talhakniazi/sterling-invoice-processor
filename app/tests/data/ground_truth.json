@@ -1,0 +1,761 @@
+{
+ "northgate_INV-10422.pdf": {
+  "supplier": "Northgate Paper Mills Ltd",
+  "invoice_number": "INV-10422",
+  "invoice_date": "2026-07-03",
+  "due_date": "2026-08-02",
+  "subtotal": 491.2,
+  "vat": 98.24,
+  "total": 589.44,
+  "expected_status": "PROCESSED",
+  "expected_flags": [],
+  "note": "Supplier name top-left, INVOICE top-right, label: value fields, right-aligned totals block",
+  "lines": [
+   39.8,
+   368.0,
+   15.9,
+   67.5
+  ]
+ },
+ "northgate_INV-10587.pdf": {
+  "supplier": "Northgate Paper Mills Ltd",
+  "invoice_number": "INV-10587",
+  "invoice_date": "2026-08-05",
+  "due_date": "2026-09-04",
+  "subtotal": 495.7,
+  "vat": 99.14,
+  "total": 594.84,
+  "expected_status": "PROCESSED",
+  "expected_flags": [],
+  "note": "Supplier name top-left, INVOICE top-right, label: value fields, right-aligned totals block",
+  "lines": [
+   36.8,
+   45.0,
+   15.9,
+   398.0
+  ]
+ },
+ "northgate_INV-10731.pdf": {
+  "supplier": "Northgate Paper Mills Ltd",
+  "invoice_number": "INV-10731",
+  "invoice_date": "2026-09-04",
+  "due_date": "2026-10-04",
+  "subtotal": 330.95,
+  "vat": 66.19,
+  "total": 397.14,
+  "expected_status": "PROCESSED",
+  "expected_flags": [],
+  "note": "Supplier name top-left, INVOICE top-right, label: value fields, right-aligned totals block",
+  "lines": [
+   7.95,
+   79.6,
+   18.4,
+   225.0
+  ]
+ },
+ "clearline_CT-2026-0412.pdf": {
+  "supplier": "Clearline Toner Supplies Ltd",
+  "invoice_number": "CT-2026-0412",
+  "invoice_date": "2026-07-14",
+  "due_date": "2026-08-13",
+  "subtotal": 1633.76,
+  "vat": 326.75,
+  "total": 1960.51,
+  "expected_status": "PROCESSED",
+  "expected_flags": [],
+  "note": "Coloured band, 'Invoice #', long-form dates, horizontal summary with labels ABOVE values",
+  "lines": [
+   599.76,
+   264.0,
+   770.0
+  ]
+ },
+ "clearline_CT-2026-0519.pdf": {
+  "supplier": "Clearline Toner Supplies Ltd",
+  "invoice_number": "CT-2026-0519",
+  "invoice_date": "2026-08-18",
+  "due_date": "2026-09-17",
+  "subtotal": 1156.6,
+  "vat": 231.32,
+  "total": 1387.92,
+  "expected_status": "PROCESSED",
+  "expected_flags": [],
+  "note": "Coloured band, 'Invoice #', long-form dates, horizontal summary with labels ABOVE values",
+  "lines": [
+   231.0,
+   105.6,
+   820.0
+  ]
+ },
+ "clearline_CT-2026-0633.pdf": {
+  "supplier": "Clearline Toner Supplies Ltd",
+  "invoice_number": "CT-2026-0633",
+  "invoice_date": "2026-10-02",
+  "due_date": "2026-11-01",
+  "subtotal": 1928.0,
+  "vat": 385.6,
+  "total": 2313.6,
+  "expected_status": "PROCESSED",
+  "expected_flags": [],
+  "note": "Coloured band, 'Invoice #', long-form dates, horizontal summary with labels ABOVE values",
+  "lines": [
+   462.0,
+   1056.0,
+   410.0
+  ]
+ },
+ "penmark_88123.pdf": {
+  "supplier": "Penmark Stationery Wholesale Ltd",
+  "invoice_number": "88123",
+  "invoice_date": "2026-07-21",
+  "due_date": "2026-08-20",
+  "subtotal": 94.35,
+  "vat": 18.87,
+  "total": 113.22,
+  "expected_status": "PROCESSED",
+  "expected_flags": [
+   "DUE_DATE_FROM_TERMS"
+  ],
+  "note": "'TAX INVOICE', ISO dates, NO due date printed - only 'Terms: 30 days'",
+  "lines": [
+   29.75,
+   12.4,
+   25.2,
+   27.0
+  ]
+ },
+ "penmark_88406.pdf": {
+  "supplier": "Penmark Stationery Wholesale Ltd",
+  "invoice_number": "88406",
+  "invoice_date": "2026-09-10",
+  "due_date": "2026-10-10",
+  "subtotal": 262.5,
+  "vat": 52.5,
+  "total": 315.0,
+  "expected_status": "PROCESSED",
+  "expected_flags": [
+   "DUE_DATE_FROM_TERMS"
+  ],
+  "note": "'TAX INVOICE', ISO dates, NO due date printed - only 'Terms: 30 days'",
+  "lines": [
+   40.5,
+   37.2,
+   42.0,
+   142.8
+  ]
+ },
+ "pinnacle_SC-26-0331.pdf": {
+  "supplier": "Pinnacle Packaging plc",
+  "invoice_number": "SC/26/0331",
+  "invoice_date": "2026-07-09",
+  "due_date": "2026-08-23",
+  "subtotal": 284.4,
+  "vat": 56.88,
+  "total": 341.28,
+  "expected_status": "PROCESSED",
+  "expected_flags": [],
+  "note": "'Inv Ref', 'Tax point', dd-Mon-yy dates, 'GBP' prefix, 'Amount excl",
+  "lines": [
+   82.8,
+   108.0,
+   93.6
+  ]
+ },
+ "pinnacle_SC-26-0417.pdf": {
+  "supplier": "Pinnacle Packaging plc",
+  "invoice_number": "SC/26/0417",
+  "invoice_date": "2026-08-27",
+  "due_date": "2026-10-11",
+  "subtotal": 1160.1,
+  "vat": 232.02,
+  "total": 1392.12,
+  "expected_status": "PROCESSED",
+  "expected_flags": [],
+  "note": "'Inv Ref', 'Tax point', dd-Mon-yy dates, 'GBP' prefix, 'Amount excl",
+  "lines": [
+   360.0,
+   662.4,
+   137.7
+  ]
+ },
+ "okafor_0042.pdf": {
+  "supplier": "Amara Okafor Design",
+  "invoice_number": "0042",
+  "invoice_date": "2026-08-02",
+  "due_date": "2026-08-16",
+  "subtotal": 900.0,
+  "vat": 0.0,
+  "total": 900.0,
+  "expected_status": "PROCESSED",
+  "expected_flags": [],
+  "note": "Non-VAT-registered sole trader: no 'Ltd', 'From:' label, US-style long date, VAT 0",
+  "lines": null
+ },
+ "verdant_VOP77810.pdf": {
+  "supplier": "Verdant Office Products Limited",
+  "invoice_number": "VOP77810",
+  "invoice_date": "2026-07-30",
+  "due_date": "2026-08-29",
+  "subtotal": 231.45,
+  "vat": 46.29,
+  "total": 277.74,
+  "expected_status": "PROCESSED",
+  "expected_flags": [],
+  "note": "Header shows only a brand/logo word; legal supplier name appears only in the footer",
+  "lines": [
+   135.0,
+   36.8,
+   19.9,
+   39.75
+  ]
+ },
+ "verdant_VOP78244.pdf": {
+  "supplier": "Verdant Office Products Limited",
+  "invoice_number": "VOP78244",
+  "invoice_date": "2026-09-22",
+  "due_date": "2026-10-22",
+  "subtotal": 145.15,
+  "vat": 29.03,
+  "total": 174.18,
+  "expected_status": "PROCESSED",
+  "expected_flags": [],
+  "note": "Header shows only a brand/logo word; legal supplier name appears only in the footer",
+  "lines": [
+   3.1,
+   71.4,
+   50.4,
+   20.25
+  ]
+ },
+ "kestrel_K-5501.pdf": {
+  "supplier": "Kestrel IT Services Ltd",
+  "invoice_number": "K-5501",
+  "invoice_date": "2026-07-31",
+  "due_date": "2026-08-14",
+  "subtotal": 794.6,
+  "vat": 158.92,
+  "total": 953.52,
+  "expected_status": "PROCESSED",
+  "expected_flags": [],
+  "note": "Supplier name top-left, INVOICE top-right, label: value fields, right-aligned totals block",
+  "lines": [
+   325.0,
+   450.0,
+   19.6
+  ]
+ },
+ "kestrel_K-5560.pdf": {
+  "supplier": "Kestrel IT Services Ltd",
+  "invoice_number": "K-5560",
+  "invoice_date": "2026-08-31",
+  "due_date": "2026-09-14",
+  "subtotal": 1144.0,
+  "vat": 228.8,
+  "total": 1372.8,
+  "expected_status": "PROCESSED",
+  "expected_flags": [],
+  "note": "Supplier name top-left, INVOICE top-right, label: value fields, right-aligned totals block",
+  "lines": [
+   900.0,
+   195.0,
+   49.0
+  ]
+ },
+ "harbour_HL009871.pdf": {
+  "supplier": "Harbour Logistics Ltd",
+  "invoice_number": "HL009871",
+  "invoice_date": "2026-09-15",
+  "due_date": "2026-10-15",
+  "subtotal": 7439.55,
+  "vat": 1487.91,
+  "total": 8927.46,
+  "expected_status": "PROCESSED",
+  "expected_flags": [],
+  "note": "Two pages; totals only on page 2",
+  "lines": [
+   19.5,
+   85.0,
+   204.0,
+   374.4,
+   662.4,
+   68.85,
+   90.0,
+   398.0,
+   110.4,
+   270.0,
+   190.8,
+   19.5,
+   85.0,
+   204.0,
+   374.4,
+   662.4,
+   68.85,
+   90.0,
+   398.0,
+   110.4,
+   270.0,
+   190.8,
+   19.5,
+   85.0,
+   204.0,
+   374.4,
+   662.4,
+   68.85,
+   90.0,
+   398.0,
+   110.4,
+   270.0,
+   190.8,
+   19.5
+  ]
+ },
+ "brightdesk_BD-0193.pdf": {
+  "supplier": "Brightdesk Furniture LLP",
+  "invoice_number": "BD-0193",
+  "invoice_date": "2026-08-12",
+  "due_date": "2026-09-11",
+  "subtotal": 3020.0,
+  "vat": 337.0,
+  "total": 3357.0,
+  "expected_status": "PROCESSED",
+  "expected_flags": [],
+  "note": "Boxed grid, mixed VAT rates per line (20% and 5%), short dd/mm/yy dates, 'Balance due'",
+  "lines": [
+   495.0,
+   1780.0,
+   745.0
+  ]
+ },
+ "meridian_MCS-2291.pdf": {
+  "supplier": "Meridian Cleaning Services Ltd",
+  "invoice_number": "MCS-2291",
+  "invoice_date": "2026-09-30",
+  "due_date": "2026-10-30",
+  "subtotal": 1330.0,
+  "vat": 266.0,
+  "total": 1596.0,
+  "expected_status": "PROCESSED",
+  "expected_flags": [],
+  "note": "Coloured band, 'Invoice #', long-form dates, horizontal summary with labels ABOVE values",
+  "lines": [
+   950.0,
+   380.0
+  ]
+ },
+ "verdant_VOP78902.pdf": {
+  "supplier": "Verdant Office Products Limited",
+  "invoice_number": "VOP78902",
+  "invoice_date": "2026-10-14",
+  "due_date": "2026-11-13",
+  "subtotal": 834.38,
+  "vat": 166.88,
+  "total": 1001.26,
+  "expected_status": "PROCESSED",
+  "expected_flags": [],
+  "note": "Header shows only a brand/logo word; legal supplier name appears only in the footer",
+  "lines": [
+   164.0,
+   462.0,
+   158.4,
+   49.98
+  ]
+ },
+ "penmark_88790.pdf": {
+  "supplier": "Penmark Stationery Wholesale Ltd",
+  "invoice_number": "88790",
+  "invoice_date": "2026-10-19",
+  "due_date": "2026-11-18",
+  "subtotal": 700.7,
+  "vat": 140.14,
+  "total": 840.84,
+  "expected_status": "PROCESSED",
+  "expected_flags": [
+   "DUE_DATE_FROM_TERMS"
+  ],
+  "note": "'TAX INVOICE', ISO dates, NO due date printed - only 'Terms: 30 days'",
+  "lines": [
+   368.0,
+   22.5,
+   119.4,
+   190.8
+  ]
+ },
+ "SCAN_0001.pdf": {
+  "supplier": "Northgate Paper Mills Ltd",
+  "invoice_number": "INV-10899",
+  "invoice_date": "2026-10-06",
+  "due_date": "2026-11-05",
+  "subtotal": 421.65,
+  "vat": 84.33,
+  "total": 505.98,
+  "expected_status": "PROCESSED",
+  "expected_flags": [
+   "OCR_USED"
+  ],
+  "note": "Image-only scan - needs OCR",
+  "lines": [
+   55.2,
+   56.25,
+   119.4,
+   190.8
+  ]
+ },
+ "SCAN_0002.pdf": {
+  "supplier": "Pinnacle Packaging plc",
+  "invoice_number": "SC/26/0502",
+  "invoice_date": "2026-10-08",
+  "due_date": "2026-11-22",
+  "subtotal": 417.9,
+  "vat": 83.58,
+  "total": 501.48,
+  "expected_status": "PROCESSED",
+  "expected_flags": [
+   "OCR_USED"
+  ],
+  "note": "Image-only scan - needs OCR",
+  "lines": [
+   216.0,
+   156.0,
+   45.9
+  ]
+ },
+ "photo_of_invoice.png": {
+  "supplier": "Harbour Logistics Ltd",
+  "invoice_number": "HL010133",
+  "invoice_date": "2026-10-21",
+  "due_date": "2026-11-20",
+  "subtotal": 1073.5,
+  "vat": 214.7,
+  "total": 1288.2,
+  "expected_status": "NEEDS_REVIEW",
+  "expected_flags": [
+   "OCR_USED",
+   "OCR_CHECK_REFERENCE"
+  ],
+  "note": "Photo - OCR; reference contains 0 that OCR may read as O",
+  "lines": [
+   816.0,
+   127.5,
+   130.0
+  ]
+ },
+ "Fwd_ invoice from Northgate (resent).pdf": {
+  "supplier": "Northgate Paper Mills Ltd",
+  "invoice_number": "INV-10587",
+  "invoice_date": "2026-08-05",
+  "due_date": "2026-09-04",
+  "subtotal": 495.7,
+  "vat": 99.14,
+  "total": 594.84,
+  "expected_status": "DUPLICATE",
+  "expected_flags": [
+   "DUPLICATE_FILE"
+  ],
+  "note": "Same file e-mailed twice",
+  "lines": [
+   36.8,
+   45.0,
+   15.9,
+   398.0
+  ]
+ },
+ "clearline_CT-2026-0519_revised.pdf": {
+  "supplier": "Clearline Toner Supplies Ltd",
+  "invoice_number": "CT-2026-0519",
+  "invoice_date": "2026-08-18",
+  "due_date": "2026-09-17",
+  "subtotal": 1171.97,
+  "vat": 234.39,
+  "total": 1406.36,
+  "expected_status": "DUPLICATE",
+  "expected_flags": [
+   "DUPLICATE_INVOICE_NUMBER"
+  ],
+  "note": "Same supplier + invoice number, different amounts",
+  "lines": [
+   74.97,
+   1056.0,
+   41.0
+  ]
+ },
+ "penmark_wrong_total_P-4410.pdf": {
+  "supplier": "Penmark Stationery Wholesale Ltd",
+  "invoice_number": "P-4410",
+  "invoice_date": "2026-09-18",
+  "due_date": "2026-10-18",
+  "subtotal": 175.0,
+  "vat": 35.0,
+  "total": 310.0,
+  "expected_status": "NEEDS_REVIEW",
+  "expected_flags": [
+   "TOTAL_MISMATCH"
+  ],
+  "note": "Total printed \u00a3100 too high",
+  "lines": [
+   15.5,
+   119.0,
+   40.5
+  ]
+ },
+ "meridian_no_number.pdf": {
+  "supplier": "Meridian Cleaning Services Ltd",
+  "invoice_number": null,
+  "invoice_date": "2026-08-29",
+  "due_date": "2026-09-28",
+  "subtotal": 2660.0,
+  "vat": 532.0,
+  "total": 3192.0,
+  "expected_status": "NEEDS_REVIEW",
+  "expected_flags": [
+   "MISSING_INVOICE_NUMBER"
+  ],
+  "note": "No invoice number printed",
+  "lines": [
+   2280.0,
+   380.0
+  ]
+ },
+ "kestrel_K-5612_bad_due.pdf": {
+  "supplier": "Kestrel IT Services Ltd",
+  "invoice_number": "K-5612",
+  "invoice_date": "2026-09-30",
+  "due_date": "2026-09-01",
+  "subtotal": 539.5,
+  "vat": 107.9,
+  "total": 647.4,
+  "expected_status": "NEEDS_REVIEW",
+  "expected_flags": [
+   "DUE_BEFORE_INVOICE_DATE"
+  ],
+  "note": "Due date earlier than invoice date",
+  "lines": [
+   450.0,
+   65.0,
+   24.5
+  ]
+ },
+ "brightdesk_BD-0207_large.pdf": {
+  "supplier": "Brightdesk Furniture LLP",
+  "invoice_number": "BD-0207",
+  "invoice_date": "2026-10-01",
+  "due_date": "2026-10-31",
+  "subtotal": 15120.0,
+  "vat": 3024.0,
+  "total": 18144.0,
+  "expected_status": "NEEDS_REVIEW",
+  "expected_flags": [
+   "HIGH_VALUE"
+  ],
+  "note": "Above \u00a310,000 approval threshold",
+  "lines": [
+   3560.0,
+   11560.0
+  ]
+ },
+ "northgate_credit_CN-0091.pdf": {
+  "supplier": "Northgate Paper Mills Ltd",
+  "invoice_number": "CN-0091",
+  "invoice_date": "2026-09-12",
+  "due_date": "2026-09-12",
+  "subtotal": -92.0,
+  "vat": -18.4,
+  "total": -110.4,
+  "expected_status": "NEEDS_REVIEW",
+  "expected_flags": [
+   "CREDIT_NOTE"
+  ],
+  "note": "Negative amounts - credit note",
+  "lines": [
+   -92.0
+  ]
+ },
+ "corrupted_download.pdf": {
+  "supplier": null,
+  "invoice_number": null,
+  "invoice_date": null,
+  "due_date": null,
+  "subtotal": null,
+  "vat": null,
+  "total": null,
+  "expected_status": "FAILED",
+  "expected_flags": [],
+  "note": "Truncated/corrupt PDF",
+  "lines": null
+ },
+ "delivery_note_DN-5521.pdf": {
+  "supplier": null,
+  "invoice_number": null,
+  "invoice_date": null,
+  "due_date": null,
+  "subtotal": null,
+  "vat": null,
+  "total": null,
+  "expected_status": "FAILED",
+  "expected_flags": [],
+  "note": "Not an invoice",
+  "lines": null
+ },
+ "kestrel_protected.pdf": {
+  "supplier": null,
+  "invoice_number": null,
+  "invoice_date": null,
+  "due_date": null,
+  "subtotal": null,
+  "vat": null,
+  "total": null,
+  "expected_status": "FAILED",
+  "expected_flags": [],
+  "note": "Password-protected PDF",
+  "lines": null
+ },
+ "facture_atelier_dubois_F-2026-0142.pdf": {
+  "supplier": "Atelier Dubois SARL",
+  "invoice_number": "F-2026-0142",
+  "invoice_date": "2026-10-12",
+  "due_date": "2026-11-11",
+  "subtotal": 333.5,
+  "vat": 66.7,
+  "total": 400.2,
+  "expected_status": "NEEDS_REVIEW",
+  "expected_flags": [
+   "FOREIGN_CURRENCY"
+  ],
+  "note": "FACTURE - non-English layout",
+  "lines": [
+   174.0,
+   72.5,
+   87.0
+  ]
+ },
+ "rechnung_mueller_RE-2026-1187.pdf": {
+  "supplier": "M\u00fcller B\u00fcrotechnik GmbH",
+  "invoice_number": "RE-2026-1187",
+  "invoice_date": "2026-10-05",
+  "due_date": "2026-11-04",
+  "subtotal": 1431.3,
+  "vat": 271.95,
+  "total": 1703.25,
+  "expected_status": "NEEDS_REVIEW",
+  "expected_flags": [
+   "FOREIGN_CURRENCY"
+  ],
+  "note": "Rechnung - non-English layout",
+  "lines": [
+   778.8,
+   378.0,
+   274.5
+  ]
+ },
+ "factuur_de_vries_2026-0315.pdf": {
+  "supplier": "De Vries Kantoorartikelen B.V.",
+  "invoice_number": "2026-0315",
+  "invoice_date": "2026-10-14",
+  "due_date": "2026-11-13",
+  "subtotal": 1314.0,
+  "vat": 275.94,
+  "total": 1589.94,
+  "expected_status": "NEEDS_REVIEW",
+  "expected_flags": [
+   "FOREIGN_CURRENCY"
+  ],
+  "note": "FACTUUR - non-English layout",
+  "lines": [
+   996.0,
+   318.0
+  ]
+ },
+ "factura_suministros_iberia_A-2026-078.pdf": {
+  "supplier": "Suministros Iberia S.L.",
+  "invoice_number": "A-2026/078",
+  "invoice_date": "2026-10-03",
+  "due_date": "2026-11-02",
+  "subtotal": 343.0,
+  "vat": 72.03,
+  "total": 415.03,
+  "expected_status": "NEEDS_REVIEW",
+  "expected_flags": [
+   "FOREIGN_CURRENCY"
+  ],
+  "note": "FACTURA - non-English layout",
+  "lines": [
+   96.0,
+   23.0,
+   224.0
+  ]
+ },
+ "fattura_cartoleria_rossi_2026-0457.pdf": {
+  "supplier": "Cartoleria Rossi S.r.l.",
+  "invoice_number": "2026/0457",
+  "invoice_date": "2026-10-21",
+  "due_date": "2026-11-20",
+  "subtotal": 180.0,
+  "vat": 39.6,
+  "total": 219.6,
+  "expected_status": "NEEDS_REVIEW",
+  "expected_flags": [
+   "FOREIGN_CURRENCY"
+  ],
+  "note": "FATTURA - non-English layout",
+  "lines": [
+   110.0,
+   70.0
+  ]
+ },
+ "fatura_papelaria_lusitana_FT2026-112.pdf": {
+  "supplier": "Papelaria Lusitana, Lda.",
+  "invoice_number": "FT2026/112",
+  "invoice_date": "2026-10-09",
+  "due_date": "2026-11-08",
+  "subtotal": 187.8,
+  "vat": 43.19,
+  "total": 230.99,
+  "expected_status": "NEEDS_REVIEW",
+  "expected_flags": [
+   "FOREIGN_CURRENCY"
+  ],
+  "note": "FATURA - non-English layout",
+  "lines": [
+   60.0,
+   105.0,
+   22.8
+  ]
+ },
+ "SCAN_rechnung_mueller.pdf": {
+  "supplier": "M\u00fcller B\u00fcrotechnik GmbH",
+  "invoice_number": "RE-2026-1203",
+  "invoice_date": "2026-10-26",
+  "due_date": "2026-11-25",
+  "subtotal": 302.0,
+  "vat": 57.38,
+  "total": 359.38,
+  "expected_status": "NEEDS_REVIEW",
+  "expected_flags": [
+   "FOREIGN_CURRENCY",
+   "OCR_USED"
+  ],
+  "note": "Rechnung - scanned non-English layout",
+  "lines": [
+   196.0,
+   106.0
+  ]
+ },
+ "us_brightwater_BW-55210.pdf": {
+  "supplier": "Brightwater Supplies Inc.",
+  "invoice_number": "BW-55210",
+  "invoice_date": "2026-10-14",
+  "due_date": "2026-11-13",
+  "subtotal": 1244.85,
+  "vat": 102.7,
+  "total": 1347.55,
+  "expected_status": "NEEDS_REVIEW",
+  "expected_flags": [
+   "FOREIGN_CURRENCY",
+   "DATES_MONTH_FIRST"
+  ],
+  "note": "US invoice: month/day dates, dollars",
+  "lines": [
+   599.85,
+   645.0
+  ]
+ }
+}
