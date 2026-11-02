@@ -11,6 +11,9 @@ jobs:
       matrix:
         os: [windows-latest, macos-latest, ubuntu-latest]
         python: ["3.10", "3.13"]
+        exclude:
+          - os: macos-latest      # macOS minutes cost 10x on private repos: test one Python version there
+            python: "3.10"
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
