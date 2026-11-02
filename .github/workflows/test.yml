@@ -12,6 +12,7 @@ jobs:
         os: [windows-latest, macos-latest, ubuntu-latest]
         python: ["3.10", "3.13"]
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
 
@@ -66,27 +67,40 @@ jobs:
       - name: Windows launcher (.bat) first-run install and start
         if: runner.os == 'Windows'
         shell: pwsh
+        timeout-minutes: 15
         run: |
+          $log = "$env:GITHUB_WORKSPACE\launcher-log.txt"
           Copy-Item -Recurse app "$env:RUNNER_TEMP\Invoice Processor"
-          Set-Location "$env:RUNNER_TEMP\Invoice Processor"
-          Remove-Item -Recurse -Force tests -ErrorAction SilentlyContinue
-          cmd /c "`"Start Invoice Processor.bat`"" | Tee-Object -FilePath "$env:GITHUB_WORKSPACE\launcher-log.txt"
-          if (-not (Test-Path ".venv\Scripts\pythonw.exe")) { throw "launcher did not create the environment" }
-          Start-Sleep -Seconds 15
-          $p = Get-Process pythonw -ErrorAction SilentlyContinue
-          if (-not $p) { throw "the app window process is not running" }
+          $dir = "$env:RUNNER_TEMP\Invoice Processor"
+          Remove-Item -Recurse -Force "$dir\tests" -ErrorAction SilentlyContinue
+          "line endings: $(if ((Get-Content -Raw "$dir\Start Invoice Processor.bat") -match "`r`n") {'CRLF'} else {'LF only'})" | Out-File $log
+          # Run the .bat exactly as a double-click would (no pipes), wait only for cmd.exe itself
+          $p = Start-Process cmd.exe -ArgumentList '/c', '"Start Invoice Processor.bat"' -WorkingDirectory $dir -PassThru `
+               -RedirectStandardOutput "$env:RUNNER_TEMP\bat-out.txt" -RedirectStandardError "$env:RUNNER_TEMP\bat-err.txt"
+          if (-not $p.WaitForExit(600000)) {
+            Get-Content "$env:RUNNER_TEMP\bat-out.txt","$env:RUNNER_TEMP\bat-err.txt" -ErrorAction SilentlyContinue | Add-Content $log
+            Stop-Process -Id $p.Id -Force; throw "launcher did not finish within 10 minutes (stuck at a prompt?) - see launcher-log.txt" }
+          Get-Content "$env:RUNNER_TEMP\bat-out.txt","$env:RUNNER_TEMP\bat-err.txt" -ErrorAction SilentlyContinue | Add-Content $log
+          "first run: cmd exit code $($p.ExitCode)" | Add-Content $log
+          if ($p.ExitCode -ne 0) { throw "launcher exited with code $($p.ExitCode)" }
+          if (-not (Test-Path "$dir\.venv\Scripts\pythonw.exe")) { throw "launcher did not create the environment" }
+          Start-Sleep -Seconds 20
+          $w = Get-Process pythonw -ErrorAction SilentlyContinue
+          if (-not $w) { throw "the app window process is not running" }
+          "app running: pythonw PID $($w.Id -join ',')" | Add-Content $log
           Add-Type -AssemblyName System.Windows.Forms, System.Drawing
           $b = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds
           $bmp = New-Object System.Drawing.Bitmap $b.Width, $b.Height
           [System.Drawing.Graphics]::FromImage($bmp).CopyFromScreen($b.Location, [System.Drawing.Point]::Empty, $b.Size)
           New-Item -ItemType Directory -Force "$env:GITHUB_WORKSPACE\ci-output" | Out-Null
           $bmp.Save("$env:GITHUB_WORKSPACE\ci-output\3_launched_by_bat.png")
-          "pythonw running: PID $($p.Id)" | Tee-Object -Append -FilePath "$env:GITHUB_WORKSPACE\launcher-log.txt"
-          Stop-Process -Id $p.Id
-          # second start must be instant (no reinstall)
-          $t = Measure-Command { cmd /c "`"Start Invoice Processor.bat`"" }
-          "second start took $($t.TotalSeconds) s" | Tee-Object -Append -FilePath "$env:GITHUB_WORKSPACE\launcher-log.txt"
-          Start-Sleep -Seconds 5; Get-Process pythonw | Stop-Process
+          $w | Stop-Process -Force
+          # Second start must not reinstall
+          $t = Measure-Command { $q = Start-Process cmd.exe -ArgumentList '/c', '"Start Invoice Processor.bat"' -WorkingDirectory $dir -PassThru -Wait }
+          "second start: cmd finished in $([math]::Round($t.TotalSeconds,1)) s, exit $($q.ExitCode)" | Add-Content $log
+          Start-Sleep -Seconds 10
+          Get-Process pythonw -ErrorAction SilentlyContinue | Stop-Process -Force
+          Get-Content $log
 
       - name: Command-line entry point
         shell: bash
